@@ -10,18 +10,28 @@ from interface_frame.common.log import Log
 import time
 
 # data_path:原数据    test_data_path:测试数据
-data_path=os.path.join(os.path.dirname(os.path.dirname(os.path.realpath("__file__"))),"data\\kuaidi.xlsx")
-test_data = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath("__file__"))), "result\\%s"%time.strftime("%Y_%m"))
-
-# 将一个月的数据放在一个文件夹下面
+# data_path=os.path.join(os.path.dirname(os.path.dirname(os.path.realpath("__file__"))),"data\\kuaidi.xlsx")
+# test_data = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath("__file__"))), "result\\%s"%time.strftime("%Y%m"))
+data_path="e:\\python work\\interface_frame\\data\\kuaidi.xlsx"
+test_data="e:\\python work\\interface_frame\\result"
 if not os.path.exists(test_data):
     os.mkdir(test_data)
-test_data_path=os.path.join(test_data,"%s"%time.strftime("%Y_%m_%d.xlsx"))
+test_data_path=os.path.join(test_data,"result.xlsx")
+print("测试数据源地址:"+data_path)
+print("测试结果地址:"+test_data_path)
+print test_data_path
+
+# 将一个月的数据放在一个文件夹下面
+# if not os.path.exists(test_data):
+#     os.mkdir(test_data)
+# test_data_path=os.path.join(test_data,"%s"%time.strftime("%Y_%m_%d.xlsx"))
+
 #复制表
 copy_excel=copy_excel(data_path,test_data_path)
 #读取数据
 test=ExcelUtil()
 test_data=test.read_excel(test_data_path,0)
+
 @ddt.ddt
 class SelectKuaiDi(unittest.TestCase):
     def setUp(self):

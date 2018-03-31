@@ -380,8 +380,8 @@ a.popup_link:hover {
     color: red;
 }
 .img{
-	width: 50%;
-	height: 50%;
+	width: 100%;
+	height: 100%;
 	border-collapse: collapse;
     border: 2px solid #777;
 }
@@ -389,13 +389,13 @@ a.popup_link:hover {
 .screenshots {
     z-index: 100;
 	position:absolute;
-	left: 20%;
+	left: 23%;
 	top: 20%;
 	display: none;
 }
 .close_shots {
 	position:absolute;
-	top:0; left:48%;
+	top:0; left:98%;
 	z-index:99;
 	width:20px;
 }
@@ -600,7 +600,7 @@ class _TestResult(TestResult):
     # note: _TestResult is a pure representation of results.
     # It lacks the output and reporting ability compares to unittest._TextTestResult.
 
-    def __init__(self, verbosity=1, retry=0):
+    def __init__(self, verbosity=2, retry=0):
         TestResult.__init__(self)
         self.stdout0 = None
         self.stderr0 = None
@@ -725,7 +725,7 @@ class HTMLTestRunner(Template_mixin):
     """
     """
 
-    def __init__(self, stream=sys.stdout, verbosity=1, title=None, description=None, retry=0):
+    def __init__(self, stream=sys.stdout, verbosity=2, title=None, description=None, retry=0):
         self.stream = stream
         self.retry = retry
         self.verbosity = verbosity
