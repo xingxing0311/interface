@@ -14,7 +14,6 @@ def copy_excel(path1,path2):
     sheets2=wb2.sheetnames
     sheet1=wb1[sheets1[0]]
     sheet2=wb2[sheets2[0]]
-    print sheet1,sheet2
     #获取行和列
     max_row=sheet1.max_row
     max_column=sheet1.max_column

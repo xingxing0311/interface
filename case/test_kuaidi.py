@@ -8,23 +8,24 @@ import os
 import ddt
 from interface_frame.common.log import Log
 import time
+import sys
 
 # data_path:原数据    test_data_path:测试数据
-# data_path=os.path.join(os.path.dirname(os.path.dirname(os.path.realpath("__file__"))),"data\\kuaidi.xlsx")
-# test_data = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath("__file__"))), "result\\%s"%time.strftime("%Y%m"))
-data_path="e:\\python work\\interface_frame\\data\\kuaidi.xlsx"
-test_data="e:\\python work\\interface_frame\\result"
+data_path=os.path.join(os.path.dirname(sys.path[0]),"data\\kuaidi.xlsx")
+test_data=os.path.join(os.path.dirname(sys.path[0]),"result\\%s"%(time.strftime("%Y_%m")))
+# data_path="e:\\python work\\interface_frame\\data\\kuaidi.xlsx"
+# test_data="e:\\python work\\interface_frame\\result"
+# if not os.path.exists(test_data):
+#     os.mkdir(test_data)
+# test_data_path=os.path.join(test_data,"result.xlsx")
+
+#将一个月的数据放在一个文件夹下面
 if not os.path.exists(test_data):
     os.mkdir(test_data)
-test_data_path=os.path.join(test_data,"result.xlsx")
-print("测试数据源地址:"+data_path)
+test_data_path=os.path.join(test_data,"%s"%time.strftime("%Y_%m_%d.xlsx"))
 print("测试结果地址:"+test_data_path)
 print test_data_path
 
-# 将一个月的数据放在一个文件夹下面
-# if not os.path.exists(test_data):
-#     os.mkdir(test_data)
-# test_data_path=os.path.join(test_data,"%s"%time.strftime("%Y_%m_%d.xlsx"))
 
 #复制表
 copy_excel=copy_excel(data_path,test_data_path)
